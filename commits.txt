@@ -1,0 +1,81 @@
+583a025 2025-07-06 docssss
+329beff 2025-07-08 docs
+1e55d36 2025-07-08 Added a landing page, updated some UI elements here and there, commented all the code with insightfull documention, updated the Readme File
+67ee1f1 2025-07-07 Add image and timestamps to Student model; enhance attendance API with new routes Added StudentCardModal, updated the prisma student schema with image, fixed invalideted cache after student checkin... and much more
+8c9a5de 2025-07-05 updated the readme file
+db8e0fc 2025-07-05 updated the readme file
+68687b4 2025-07-05 updated the readme file
+9b93f6e 2025-07-05 updated the license file
+380513c 2025-07-05 updated the license file
+9c104c3 2025-07-05 updated the README file
+2a4301a 2025-07-05 added "allowDangerousEmailAccountLinking" to the authOptions file for github
+6abdb2f 2025-07-05 added "allowDangerousEmailAccountLinking" to the authOptions file for github
+d9cbb45 2025-07-05 Updated the download sheet styling
+77ea99b 2025-07-05 Improved the performance and clean the code, fixed some bugs in the Homepage...
+0fdcf7e 2025-07-05 Fixed Age input number-1
+c83b4de 2025-07-05 Fixed Age input number going to 80 automatically
+59e9807 2025-07-05 Improved the Student page and the student table UI, added a skeleton loading, and more
+bceebd7 2025-07-05 Fixed the attendance chart dates and API
+ea78f27 2025-07-05 Fixed the attendance chart dates and API
+bdcad82 2025-07-05 Fixed the api attendance date recording, fixed the attendance chart dates plus more UI tweaks
+d5dee56 2025-07-04 Fixing the date-7
+def8ac2 2025-07-04 Fixing the date rolling back
+74a34fa 2025-07-04 Fixing the date-deepseek
+bab1117 2025-07-04 Fixing the date-3
+60c4aee 2025-07-04 Fixing the date-2
+85e31df 2025-07-04 Fixing the date bug reverting back
+1e8f3dd 2025-07-04 Fixing the date bug, setingHours for the displayed time
+a9161da 2025-07-04 removing the +1 string
+129ec78 2025-07-04 fixing calendar bug-1
+201f678 2025-07-04 fix date bug removing the setHours line
+e23ae5b 2025-07-04 fix date bug console log
+cb95d72 2025-07-04 fix date bug attendanceLog...
+52b2397 2025-07-04 fix date bug-6
+64691cb 2025-07-04 fix date bug-5
+67ba8b3 2025-07-04 fix date bug-4
+65a9e40 2025-07-04 fix date bug-UTC
+5257593 2025-07-04 fix date bug-2
+dca3fe9 2025-07-04 fix date bug, vercel speedInsight
+1552495 2025-07-04 fix date bug, vercel analytics
+ce47973 2025-07-04 fix date bug-1
+646a3b0 2025-07-04 fix date bug...
+9be562c 2025-07-04 Key Improvements: Immediate UI Feedback: Optimistic updates for both check-in and removal Background Syncing: Non-blocking server communication Smarter Caching: Granular cache management and background refresh Reduced API Calls: Batched requests and cache-first approach Debounce Optimization: Faster response to user inpu Search Indexing: Improved student search performance UI imporvement added a navbar for the movile version ... and much more small UI fixes added option to add teachers names, added option to change the date uppon downloading the report fixed loggin bug changed the Xlsx library to exceljs as it has more features and is vulnirable free and much more under the hood fixes..
+e3b56c9 2025-07-04 fixed a bug where the handleCheck didn't pass the argument if the student is exist or not
+ef1e5fc 2025-07-04 added a search input for easier checking process fix some UI bugs
+21ada46 2025-07-04 added a search input for easier checking process fix some UI bugs
+48ea219 2025-07-04 fixing the import button updating the ui and more...
+d646863 2025-07-04 fixing the import button updating the ui and more
+077602f 2025-07-04 fixin server timeout error setting 60s, and minor bugs
+7218483 2025-07-04 fixin server timeout error setting 60s, and minor bugs
+9ad817c 2025-07-04 fixinf server timeout error setting 60s
+b697e1d 2025-07-04 fixinf server timeout error
+cd1188d 2025-07-04 fixinf server timeout error
+f97db1f 2025-07-04 Fixed bugs: - the import button now has a modal to link individual columns to their correct plase. - Fixed the sutedent table delete button confirmation .. and more
+ff7060e 2025-07-04 Fixed some tabel errors, added trhe ability to download attendance based on the user prefrences ,and more..- fixed tooltip
+3e65e10 2025-07-04 Fixed some tabel errors, added trhe ability to download attendance based on the user prefrences ,and more..
+35a0b09 2025-07-04 Fixed some tabel errors, added trhe ability to download attendance based on the user prefrences ,and more..
+5f7b8f4 2025-07-04 fixing authentication-next.config
+f5081b4 2025-07-04 fixing authentication-prisma
+c601e7d 2025-07-04 fixing authentication-8-1
+c0af92b 2025-07-03 fixing authentication-8
+7fffc44 2025-07-03 fixing authentication-7
+be06e65 2025-07-03 fixing authentication-6-1
+11cca74 2025-07-03 fixing authentication-6
+f992ab6 2025-07-03 fixing authentication-5
+571e03f 2025-07-03 fixing authentication-4
+1cb2785 2025-07-03 fixing authentication-3
+6f14bd3 2025-07-03 fixing authentication-2
+e83300e 2025-07-03 fixing authentication
+291234e 2025-07-03 fixing authentication
+459159a 2025-07-03 fixing authentication
+fbdf348 2025-07-03 fixing authentication
+03899b4 2025-07-03 deployment
+634d428 2025-07-02 trying prisma downgrade
+4ce9a90 2025-07-02 trying prisma downgrade
+b4052db 2025-07-01 github repo init
+badb1a7 2025-06-30 Added language translation
+1c832bc 2025-06-29 fixed the calendar selected day filter
+4b43cb2 2025-06-29 create the students list page
+17a8a69 2025-06-28 layout fix
+8e70682 2025-06-28 initial build commit
+06428d9 2025-06-28 Initial commit from Create Next App
