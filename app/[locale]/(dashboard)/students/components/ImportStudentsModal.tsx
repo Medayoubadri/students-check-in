@@ -126,7 +126,7 @@ export function ImportStudentsModal({
       };
       toast({
         title: t("toastitle-failed"),
-        description: t("toastdescription-failed") + error,
+        description: t("toastdescription-failed"),
         variant: "destructive",
       });
       onImportComplete(errorResult);
