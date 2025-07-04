@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import {
   Table,
@@ -26,7 +28,6 @@ import {
   Trash2,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
 
 interface Student {
   id: string;
@@ -60,8 +61,6 @@ export function StudentsTable({
   const [sortColumn, setSortColumn] = useState<keyof Student>("name");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [selectedStudents, setSelectedStudents] = useState<string[]>([]);
-  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-  const [studentToDelete, setStudentToDelete] = useState<string | null>(null);
 
   const handleSort = (column: keyof Student) => {
     if (column === sortColumn) {
@@ -92,9 +91,9 @@ export function StudentsTable({
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   const isNewStudent = (createdAt: string) => {
-    const oneMonthAgo = new Date();
-    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-    return new Date(createdAt) > oneMonthAgo;
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    return new Date(createdAt) > oneWeekAgo;
   };
 
   const handleSelectStudent = (studentId: string) => {
@@ -114,16 +113,7 @@ export function StudentsTable({
   };
 
   const handleDeleteClick = (studentId: string) => {
-    setStudentToDelete(studentId);
-    setIsDeleteDialogOpen(true);
-  };
-
-  const handleConfirmDelete = () => {
-    if (studentToDelete) {
-      onDelete(studentToDelete);
-    }
-    setIsDeleteDialogOpen(false);
-    setStudentToDelete(null);
+    onDelete(studentId);
   };
 
   const handleBulkDelete = () => {
@@ -249,7 +239,7 @@ export function StudentsTable({
             : `${t("noStudentsFound")}${searchTerm ? t("forSearch") : "."}`}
         </div>
       )}
-      <div className="flex justify-between items-center md:items-center gap-4 py-4">
+      <div className="flex justify-between items-center md:items-center gap-4 py-4 w-full">
         <Select
           value={studentsPerPage.toString()}
           onValueChange={(value) => setStudentsPerPage(Number(value))}
@@ -269,6 +259,10 @@ export function StudentsTable({
             ))}
           </SelectContent>
         </Select>
+        <p>
+          <span className="font-semibold">{filteredStudents.length}</span>{" "}
+          {t("studentsTotal")}
+        </p>
         <div className="flex justify-center items-center space-x-2 w-full md:w-auto">
           <Button
             variant="outline"
@@ -306,13 +300,6 @@ export function StudentsTable({
           </Button>
         </div>
       </div>
-
-      <DeleteConfirmationDialog
-        isOpen={isDeleteDialogOpen}
-        onClose={() => setIsDeleteDialogOpen(false)}
-        onConfirm={handleConfirmDelete}
-        itemName={t("student")}
-      />
     </>
   );
 }

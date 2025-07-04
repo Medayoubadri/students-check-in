@@ -22,7 +22,7 @@ interface AttendanceChartProps {
 export function AttendanceChart({ data }: AttendanceChartProps) {
   const t = useTranslations("AttendanceChart");
   return (
-    <Card className="w-full">
+    <Card className="bg-background w-full">
       <CardHeader>
         <CardTitle>{t("title")}</CardTitle>
       </CardHeader>
