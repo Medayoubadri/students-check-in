@@ -10,10 +10,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { NewStudentModal } from "@/app/[locale]/(dashboard)/Home/components/AddStudentModal";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useTranslations } from "next-intl";
+import { NameInputs } from "@/app/[locale]/(dashboard)/Home/components/InputNames";
 
 interface StudentCheckInProps {
   onCheckIn: () => void;
@@ -43,6 +44,7 @@ export function StudentCheckIn({
       const checkResponse = await fetch(
         `/api/students/check?name=${encodeURIComponent(normalizedName)}`
       );
+
       const existingStudent = await checkResponse.json();
 
       if (existingStudent) {
@@ -134,10 +136,6 @@ export function StudentCheckIn({
     }
   };
 
-  const handleClearName = () => {
-    setName("");
-  };
-
   return (
     <Card className="bg-background w-full">
       <CardHeader>
@@ -150,29 +148,13 @@ export function StudentCheckIn({
           <div className="space-y-2">
             <Label htmlFor="name">{t("fullName")}</Label>
             <div className="relative">
-              <Input
-                id="name"
+              <NameInputs
                 value={name}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    handleCheck();
-                  }
+                onChange={setName}
+                onSelectStudent={async (student) => {
+                  await markAttendance(student.id);
                 }}
-                onChange={(e) => setName(e.target.value)}
-                className="bg-background dark:bg-zinc-900 px-4 dark:border-none"
-                placeholder={t("fullName")}
-                required
               />
-              {name && (
-                <Button
-                  variant="default"
-                  size="icon"
-                  className="top-0 right-0 absolute bg-transparent hover:bg-transparent h-full text-destructive hover:text-red-500"
-                  onClick={handleClearName}
-                >
-                  <X className="mr-4 p-0 !w-5 !h-5" />
-                </Button>
-              )}
             </div>
           </div>
           {!showAdditionalFields && (
@@ -217,10 +199,10 @@ export function StudentCheckIn({
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="flex flex-col gap-3 px-4 py-2 w-[320px] lg:w-[400px]">
-                    <DropdownMenuItem onClick={() => setGender("male")}>
+                    <DropdownMenuItem onClick={() => setGender("M")}>
                       {t("male")}
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setGender("female")}>
+                    <DropdownMenuItem onClick={() => setGender("F")}>
                       {t("female")}
                     </DropdownMenuItem>
                   </DropdownMenuContent>
