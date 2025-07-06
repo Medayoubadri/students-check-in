@@ -1,16 +1,16 @@
 # Students Attendance System
 
 <p align="center">
-  <img src="public/checkin-Mate-preview.png" alt="Checkin-Mate Preview" width="800"/>
+  <img src="/public/Checkin-Mate-preview.png" alt="Checkin-Mate Preview" width="800"/>
 </p>
 
 ## 🔥 Introduction
 
-The Students Attendance System is a modern web application designed to streamline the process of tracking student attendance in educational institutions. Built with cutting-edge technologies, it provides an intuitive interface for managing student records and attendance data.
+The Students Attendance System is a modern web application designed to streamline the process of tracking student attendance in educational institutions. It provides an intuitive interface for managing student records and attendance data.
 
 ## 🔗 Live Preview
 
-Check out the live demo of CheckIn Mate here: [Live Preview](https://check-in-mate.vercel.app/)
+Check out the live demo of student checkin here: [Live Preview](https://check-in-mate.vercel.app/)
 
 ## 🌟 Features
 
@@ -46,8 +46,8 @@ Check out the live demo of CheckIn Mate here: [Live Preview](https://check-in-ma
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Medayoubadri/check-in-mate.git
-cd check-in-mate
+git clone https://github.com/Medayoubadri/student-checkin.git
+cd student-checkin
 ```
 
 2. Install dependencies:
