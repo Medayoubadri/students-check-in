@@ -10,20 +10,17 @@ interface AttendanceEntry {
 
 const DAILY_CACHE_KEY = "attendance-daily";
 const TOTAL_CACHE_KEY = "attendance-total";
-const CACHE_TTL = 60 * 120 * 1000; // 2 hours
+const CACHE_TTL = 1 * 1 * 1000; // 2 hours
 const formatDateKey = (date: Date) => {
   // Create date at midnight in local timezone
   const localDate = new Date(date);
-  localDate.setHours(0, 0, 0, 0);
+  // localDate.setHours(0, 0, 0, 0);
   // Get YYYY-MM-DD in local timezone
-  return `${localDate.getFullYear()}-${String(
-    localDate.getMonth() + 1
-  ).padStart(2, "0")}-${String(localDate.getDate()).padStart(2, "0")}`;
+  return localDate;
 };
 
 export const attendanceLogService = {
   async getDailyAttendance(date: Date): Promise<AttendanceEntry[]> {
-    console.time("getDailyAttendance");
     const dateKey = formatDateKey(date);
     const cacheKey = `${DAILY_CACHE_KEY}-${dateKey}`;
 
@@ -33,7 +30,6 @@ export const attendanceLogService = {
       const { data, timestamp, forceRefresh } = JSON.parse(cached);
       // Only use cache if TTL is valid and no force refresh is set
       if (!forceRefresh && Date.now() - timestamp < CACHE_TTL) {
-        console.timeEnd("getDailyAttendance");
         return data;
       }
     }
@@ -173,7 +169,5 @@ export const attendanceLogService = {
     if (studentId) {
       localStorage.removeItem(`${TOTAL_CACHE_KEY}-${studentId}`);
     }
-
-    console.log("Cache invalidated for", { studentId, date });
   },
 };
