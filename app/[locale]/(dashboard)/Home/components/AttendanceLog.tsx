@@ -68,7 +68,6 @@ export default function AttendanceLog({
       );
 
       setAttendanceData(formattedData);
-      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching attendance data:", error);
     }
