@@ -38,7 +38,7 @@ export default function AttendanceLog({
   const [currentDate, setCurrentDate] = useState(new Date());
   console.log("Current date:", currentDate);
   const [attendanceData, setAttendanceData] = useState<AttendanceEntry[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const t = useTranslations("AttendanceLog");
   const f = useFormatter();
 
@@ -68,7 +68,6 @@ export default function AttendanceLog({
       );
 
       setAttendanceData(formattedData);
-      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching attendance data:", error);
     }
@@ -84,6 +83,7 @@ export default function AttendanceLog({
     setCurrentDate((prev) => {
       const newDate = new Date(prev);
       newDate.setDate(prev.getDate() + (direction === "next" ? 1 : -1));
+      newDate.setHours(0, 0, 0, 0); // Ensure midnight
       return newDate;
     });
   };
