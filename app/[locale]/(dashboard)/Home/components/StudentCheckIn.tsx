@@ -329,8 +329,11 @@ export function StudentCheckIn({
         <NewStudentModal
           isOpen={isModalOpen}
           onClose={() => {
-            if (isLoading) {
+            if (!isLoading) {
               setIsModalOpen(false);
+              setAge("");
+              setGender("");
+              setPhoneNumber("");
             }
           }}
           onSubmit={handleSubmit}

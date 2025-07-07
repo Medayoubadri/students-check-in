@@ -3,7 +3,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useSession } from "next-auth/react";
-// import { useRouter } from "next/navigation";
 import { StudentCheckIn } from "@/app/[locale]/(dashboard)/Home/components/StudentCheckIn";
 import { MetricsCards } from "@/app/[locale]/(dashboard)/Home/components/MetricsCards";
 import { AttendanceChart } from "@/app/[locale]/(dashboard)/Home/components/AttendanceChart";
@@ -13,6 +12,7 @@ import { metricsService } from "@/utils/metricsService";
 import { attendanceHistoryService } from "@/utils/attendanceHistoryService";
 import { toast } from "@/hooks/use-toast";
 import { useTranslations } from "next-intl";
+import { attendanceLogService } from "@/utils/attendanceLogService";
 
 interface Metrics {
   totalStudents: number;
@@ -28,7 +28,6 @@ interface AttendanceData {
 
 export default function HomePage() {
   const { status } = useSession();
-  // const router = useRouter();
   const t = useTranslations("HomePage");
   const [metrics, setMetrics] = useState<Metrics>({
     totalStudents: 0,
@@ -95,6 +94,9 @@ export default function HomePage() {
   }, [t]);
 
   const refreshRecentActivity = () => {
+    attendanceHistoryService.invalidateCache();
+    attendanceLogService.invalidateCache(undefined, new Date());
+    fetchAttendanceData();
     setRefreshTrigger((prev) => prev + 1);
     fetchMetrics();
   };
@@ -113,11 +115,6 @@ export default function HomePage() {
       </div>
     );
   }
-
-  // if (status === "unauthenticated") {
-  //   router.push("/auth/signin");
-  //   return null;
-  // }
 
   return (
     <div className="flex flex-col items-center gap-4 md:mt-0 p-4 md:p-6 w-full h-full overflow-y-auto">

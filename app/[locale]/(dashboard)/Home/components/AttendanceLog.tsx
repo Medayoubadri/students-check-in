@@ -15,6 +15,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "@/hooks/use-toast";
 import { attendanceLogService } from "@/utils/attendanceLogService";
+import { attendanceHistoryService } from "@/utils/attendanceHistoryService";
 
 interface AttendanceEntry {
   fullName: string;
@@ -34,18 +35,15 @@ export default function AttendanceLog({
   onAttendanceRemoved,
 }: AttendanceLogProps) {
   // Initialize currentDate with time set to midnight
-  const [currentDate, setCurrentDate] = useState(() => {
-    const now = new Date();
-    now.setHours(0, 0, 0, 0);
-    return now;
-  });
-
+  const [currentDate, setCurrentDate] = useState(new Date());
+  console.log("Current date:", currentDate);
   const [attendanceData, setAttendanceData] = useState<AttendanceEntry[]>([]);
   const [isLoading] = useState(false);
   const t = useTranslations("AttendanceLog");
   const f = useFormatter();
 
   useEffect(() => {
+    attendanceHistoryService.invalidateCache();
     fetchAttendanceData(currentDate);
   }, [currentDate, refreshTrigger]);
 
@@ -60,6 +58,7 @@ export default function AttendanceLog({
       }
       // Batch fetch all totals
       const studentIds = presentStudents.map((student) => student.id);
+      setIsLoading(true);
       const totals = await attendanceLogService.getTotalAttendances(studentIds);
       const formattedData: AttendanceEntry[] = presentStudents.map(
         (student) => ({
@@ -103,6 +102,7 @@ export default function AttendanceLog({
       setAttendanceData((prev) =>
         prev.filter((entry) => entry.id !== studentId)
       );
+      attendanceHistoryService.invalidateCache();
       await attendanceLogService.removeAttendance(studentId, currentDate);
       toast({
         title: t("attendanceRemoved"),
@@ -155,8 +155,15 @@ export default function AttendanceLog({
                   onSelect={(date) => {
                     if (date) {
                       const normalized = new Date(date);
-                      normalized.setHours(0, 0, 0, 0); // Ensure midnight
-                      setCurrentDate(normalized);
+                      normalized.setHours(0, 0, 0, 0); // Set local midnight
+                      // Convert to UTC date
+                      const utcDate = new Date(
+                        normalized.getTime() -
+                          normalized.getTimezoneOffset() * 60000
+                      );
+                      console.log("Selected date:", utcDate);
+                      setCurrentDate(utcDate);
+                      // Close the popover
                       const trigger = document.querySelector(
                         '[data-state="open"]'
                       );

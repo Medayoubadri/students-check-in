@@ -64,7 +64,7 @@ export async function GET(request: Request) {
 
     if (date) {
       const dateObj = new Date(date);
-      dateObj.setUTCHours(0, 0, 0, 0);
+      // dateObj.setUTCHours(0, 0, 0, 0);
       const nextDay = new Date(dateObj);
       nextDay.setUTCDate(nextDay.getUTCDate() + 1);
 
