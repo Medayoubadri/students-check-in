@@ -23,16 +23,16 @@ const ToastViewport = React.forwardRef<
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
 
 const toastVariants = cva(
-  "group data-[state=closed]:slide-out-to-right-full data-[state=open]:sm:slide-in-from-bottom-full relative flex justify-between items-center space-x-4 data-[state=open]:slide-in-from-top-full shadow-xl p-6 pr-8 border rounded-md w-full overflow-hidden transition-all data-[swipe=move]:transition-none data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[state=closed]:animate-out data-[state=open]:animate-in data-[swipe=end]:animate-out pointer-events-auto data-[state=closed]:fade-out-80",
+  "group data-[state=closed]:slide-out-to-right-full data-[state=open]:sm:slide-in-from-bottom-full relative flex justify-between items-center space-x-4 data-[state=open]:slide-in-from-top-full shadow-2xl p-6 pr-8 border rounded-md w-full overflow-hidden transition-all data-[swipe=move]:transition-none data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[state=closed]:animate-out data-[state=open]:animate-in data-[swipe=end]:animate-out pointer-events-auto data-[state=closed]:fade-out-80",
   {
     variants: {
       variant: {
         default: "border bg-background text-foreground",
         destructive:
-          "destructive group border-destructive bg-background text-destructive-foreground",
-        success: "border border-emerald-500 bg-background",
-        info: "border border-sky-500 bg-background",
-        warning: "border border-yellow-500 bg-background",
+          "destructive group border-destructive bg-background dark:text-destructive-foreground",
+        success: "border border-emerald-500 bg-background dark:text-white ",
+        info: "border border-sky-500 bg-background dark:text-white",
+        warning: "border border-yellow-500 bg-background dark:text-white",
       },
     },
     defaultVariants: {
