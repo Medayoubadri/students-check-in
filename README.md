@@ -15,7 +15,7 @@ Check out the live demo of CheckIn Mate here: [Live Preview](https://check-in-ma
 ## 📝 Project Blog
 
 Read the detailed blog post about this project, including my journey, challenges, and learnings:  
-[Project Blog Post](https://your-blog-link.com)
+[Project Blog Post](https://www.linkedin.com/pulse/from-check-in-chaos-digital-efficiency-my-journey-mate-badri-nptie/)
 
 ## 👤 About the Author
 
@@ -58,8 +58,8 @@ I'm **Ayoub**, a passionate full-stack developer. This project is a part of my A
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Medayoubadri/student-checkin.git
-cd student-checkin
+git clone https://github.com/Medayoubadri/students-check-in.git
+cd students-check-in
 ```
 
 2. Install dependencies:
@@ -141,15 +141,11 @@ For more technical insights, refer to the code comments and documentation within
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="/public/screenshots/2.png" alt="Checkin-Mate Preview" width="600"/>
-  <img src="/public/screenshots/3.png" alt="Checkin-Mate Preview" width="600"/>
   <img src="/public/screenshots/4.png" alt="Checkin-Mate Preview" width="600"/>
   <img src="/public/screenshots/5.png" alt="Checkin-Mate Preview" width="600"/>
   <img src="/public/screenshots/6.png" alt="Checkin-Mate Preview" width="600"/>
   <img src="/public/screenshots/7.png" alt="Checkin-Mate Preview" width="600"/>
   <img src="/public/screenshots/8.png" alt="Checkin-Mate Preview" width="600"/>
-  <img src="/public/screenshots/9.png" alt="Checkin-Mate Preview" width="600"/>
-  <img src="/public/screenshots/10.png" alt="Checkin-Mate Preview" width="600"/>
   <img src="/public/screenshots/11.png" alt="Checkin-Mate Preview" width="600"/>
   <img src="/public/screenshots/12.png" alt="Checkin-Mate Preview" width="600"/>
   <img src="/public/screenshots/13.png" alt="Checkin-Mate Preview" width="600"/>
